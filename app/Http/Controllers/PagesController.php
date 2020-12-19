@@ -28,10 +28,12 @@ class PagesController extends Controller
             return view('layouts.main');
         }
 
+        $page_name = $page_->name;
+        // $ds_title = $page_->name;
         $ds_header = $page_->header;
         $ds_body = $page_->content;
 
-        return view('layouts.main', compact('ds_header', 'ds_body'));
+        return view('layouts.main', compact('page_name', 'ds_header', 'ds_body'));
     }
 
 }

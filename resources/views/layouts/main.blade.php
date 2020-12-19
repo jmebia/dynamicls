@@ -7,7 +7,14 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Dynamic Site by JM Ebia</title>
+    <title>
+    {{ config('app.name') . " | " }}
+    @isset($page_name)
+      {{ $page_name }}
+    @else
+      Default
+    @endif
+    </title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -17,7 +24,7 @@
   <body>
 
     <!-- As a link -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-white shadow">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Dynamic</a>
         </div>

@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->longText('page_code')->unique();
             $table->string('name')->unique();
+            $table->longText('css')->nullable();
             $table->longText('header')->nullable();
             $table->longText('content')->nullable();
             $table->timestamps();
