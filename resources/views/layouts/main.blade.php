@@ -26,7 +26,7 @@
     <!-- As a link -->
     <nav class="navbar navbar-light bg-white shadow">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Dynamic</a>
+            <a class="navbar-brand" href="/{{$page_name}}/index">{{ config('app.name', 'DynamicLS') }}</a>
         </div>
     </nav>
 
