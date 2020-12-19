@@ -17,18 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{page}/index', function($page) {
-
-    $ds_header = "<div class='bg-light p-5 my-2'> 
-    <p>You are now viewing</p>
-    <h1>" . $page . "</h1> </div>";
-    $ds_body = "<div class='container'> This is ". $page . "'s content. </div>";
-
-    // Footer component
-    // $ds_footer = "<div class='footer mt-auto py-3 bg-light'> You've reached the end of ". $page . ". </div>";
-
-    return view('layouts.main', compact('ds_header', 'ds_body'));
-});
+Route::get('/{page}/index', [App\Http\Controllers\PagesController::class, 'render'])->name('page.render');
 
 Auth::routes();
 

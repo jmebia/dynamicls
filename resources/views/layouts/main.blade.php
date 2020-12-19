@@ -31,7 +31,7 @@
     @isset($ds_body)
         {!! $ds_body !!}
     @else
-        <h1>Error 404 - No page content found.</h1>
+        <h4>Error 404 - No page content found.</h4>
     @endif
     </main><!-- /.container -->
 
