@@ -15,6 +15,7 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
+        // seed example bootstrap page
         DB::table('pages')->insert([
             'page_code' => md5(Str::random(10)),
             'name' => 'page',

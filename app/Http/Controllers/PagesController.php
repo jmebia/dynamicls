@@ -33,7 +33,7 @@ class PagesController extends Controller
         $ds_header = $page_->header;
         $ds_body = $page_->content;
 
-        return view('layouts.main', compact('page_name', 'ds_header', 'ds_body'));
+        return view('layouts.' . $page_->layout, compact('page_name', 'ds_header', 'ds_body'));
     }
 
 }
