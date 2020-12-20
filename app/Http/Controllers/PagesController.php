@@ -21,6 +21,8 @@ class PagesController extends Controller
     public function render($page)
     {
 
+        $pages_list = Page::all();
+
         $page_ = Page::where('name', $page)->first();
 
         if ( is_null($page_) ) {
@@ -33,7 +35,7 @@ class PagesController extends Controller
         $ds_header = $page_->header;
         $ds_body = $page_->content;
 
-        return view('layouts.' . $page_->layout, compact('page_name', 'ds_header', 'ds_body'));
+        return view('layouts.' . $page_->layout, compact('pages_list', 'page_name', 'ds_header', 'ds_body'));
     }
 
 }
