@@ -38,4 +38,6 @@ class PagesController extends Controller
         return view('layouts.' . $page_->layout, compact('pages_list', 'page_name', 'ds_header', 'ds_body'));
     }
 
+    
+
 }
