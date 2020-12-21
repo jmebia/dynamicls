@@ -18,11 +18,13 @@ class PagesController extends Controller
         // $this->middleware('auth');
     }
 
-    public function render($page)
+    public function home() {
+
+    }
+
+    public function render($page = null)
     {
-
-        $pages_list = Page::all();
-
+        // continue to dynamic page rendering
         $page_ = Page::where('name', $page)->first();
 
         if ( is_null($page_) ) {
@@ -30,12 +32,15 @@ class PagesController extends Controller
             return view('layouts.main');
         }
 
+        $pages_list = Page::all();
+
         $page_name = $page_->name;
         // $ds_title = $page_->name;
+        $ds_css = $page_->css;
         $ds_header = $page_->header;
         $ds_body = $page_->content;
 
-        return view('layouts.' . $page_->layout, compact('pages_list', 'page_name', 'ds_header', 'ds_body'));
+        return view('layouts.' . $page_->layout, compact('ds_css', 'pages_list', 'page_name', 'ds_header', 'ds_body'));
     }
 
     

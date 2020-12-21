@@ -10,9 +10,9 @@
               @foreach ($pages_list as $link)
               <li class="nav-item">
                 @if (strpos($_SERVER['REQUEST_URI'], $link->name) !== false)
-                <a class="nav-link active" aria-current="page" href="/{{$link->name}}/index">{{$link->name}}</a>
+                <a class="nav-link active" aria-current="page" href="/{{$link->name}}">{{$link->name}}</a>
                 @else
-                <a class="nav-link" href="/{{$link->name}}/index">{{$link->name}}</a>
+                <a class="nav-link" href="/{{$link->name}}">{{$link->name}}</a>
                 @endif
               </li>
               @endforeach
