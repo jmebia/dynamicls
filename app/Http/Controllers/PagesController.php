@@ -19,7 +19,9 @@ class PagesController extends Controller
     }
 
     public function home() {
+        $page = Page::where('is_home', 1)->first();
 
+        $this->render($page->name);
     }
 
     public function render($page = null)
@@ -43,6 +45,35 @@ class PagesController extends Controller
         return view('layouts.' . $page_->layout, compact('ds_css', 'pages_list', 'page_name', 'ds_header', 'ds_body'));
     }
 
-    
+    public function index() {
+        
+        $pages = Page::paginate(10);
+
+        return view('pages.index', compact('pages'));
+    }
+
+    // functions with required authentications
+    public function builder() {
+        $this->middleware('auth');
+
+        return view('pages.builder');
+    }
+
+    public function store(Request $request) {
+        // $this->middleware('auth');
+
+        // $this->validate($request, [
+        //     'content' => 'required',
+        //     'name' => 'required|unique',
+        // ]);
+
+        $page = Page::create([
+            'page_code' => md5($request->name . '-' . date('Ymdhms')),
+            'name' => $request->name,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('page.index');
+    }
 
 }

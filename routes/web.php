@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\PagesController::class, 'render'])->name('page.home');
+Route::get('/', [App\Http\Controllers\PagesController::class, 'home'])->name('page.home');
 
 Auth::routes();
 
-Route::get('/v1/dls-dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/v1/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+// page routes
+Route::get('/v1/pages', [App\Http\Controllers\PagesController::class, 'index'])->name('page.index');
+Route::get('/v1/page/builder', [App\Http\Controllers\PagesController::class, 'builder'])->name('page.builder');
+Route::post('/v1/page/store', [App\Http\Controllers\PagesController::class, 'store'])->name('page.store');
 
 Route::get('/{page}', [App\Http\Controllers\PagesController::class, 'render'])->name('page.render');
 

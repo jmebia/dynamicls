@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const DASHBOARD = '/v1/dls-dashboard';
+    public const DASHBOARD = '/v1/dashboard';
 
     /**
      * The controller namespace for the application.

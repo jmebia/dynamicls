@@ -21,6 +21,7 @@ class CreatePagesTable extends Migration
             $table->longText('css')->nullable();
             $table->longText('header')->nullable();
             $table->longText('content')->nullable();
+            $table->boolean('is_home')->default(false);
             $table->timestamps();
         });
     }
