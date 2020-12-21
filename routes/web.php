@@ -17,6 +17,7 @@ Route::get('/', [App\Http\Controllers\PagesController::class, 'render'])->name('
 
 Auth::routes();
 
+Route::get('/v1/dls-dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
 Route::get('/{page}', [App\Http\Controllers\PagesController::class, 'render'])->name('page.render');
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
