@@ -19,9 +19,9 @@ class PagesController extends Controller
     }
 
     public function home() {
-        $page = Page::where('is_home', 1)->first();
+        $page = Page::where('is_home', true)->first();
 
-        $this->render($page->name);
+        return $this->render($page->name);
     }
 
     public function render($page = null)
