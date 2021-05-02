@@ -15,10 +15,13 @@ class CreateComponentsTable extends Migration
     {
         Schema::create('components', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->longtext('html');
+            $table->longtext('value'); // component value e.g. text, number, etc.
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
